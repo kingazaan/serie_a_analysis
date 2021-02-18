@@ -1,175 +1,109 @@
-Notes for Football Data
+Analysis of Serie A data
 
-All data is in csv format, ready for use within standard spreadsheet applications. Please note that some abbreviations are no longer in use (in particular odds from specific bookmakers no longer used) and refer to data collected in earlier seasons. For a current list of what bookmakers are included in the dataset please visit http://www.football-data.co.uk/matches.php
+##Step 1: Convert all files into 1 and add season column
 
-Key to results data:
+##Step 2: Delete all betting columns
+Keep:
 
-Div = League Division
-Date = Match Date (dd/mm/yy)
-Time = Time of match kick off
-HomeTeam = Home Team
-AwayTeam = Away Team
-FTHG and HG = Full Time Home Team Goals
-FTAG and AG = Full Time Away Team Goals
-FTR and Res = Full Time Result (H=Home Win, D=Draw, A=Away Win)
-HTHG = Half Time Home Team Goals
-HTAG = Half Time Away Team Goals
-HTR = Half Time Result (H=Home Win, D=Draw, A=Away Win)
+Season      Season
+Date	    Match Date (dd/mm/yy)
+AwayTeam    Away Team
+HomeTeam	Home Team
 
-Match Statistics (where available)
-Attendance = Crowd Attendance
-Referee = Match Referee
-HS = Home Team Shots
-AS = Away Team Shots
-HST = Home Team Shots on Target
-AST = Away Team Shots on Target
-HHW = Home Team Hit Woodwork
-AHW = Away Team Hit Woodwork
-HC = Home Team Corners
-AC = Away Team Corners
-HF = Home Team Fouls Committed
-AF = Away Team Fouls Committed
-HFKC = Home Team Free Kicks Conceded
-AFKC = Away Team Free Kicks Conceded
-HO = Home Team Offsides
-AO = Away Team Offsides
-HY = Home Team Yellow Cards
-AY = Away Team Yellow Cards
-HR = Home Team Red Cards
-AR = Away Team Red Cards
-HBP = Home Team Bookings Points (10 = yellow, 25 = red)
-ABP = Away Team Bookings Points (10 = yellow, 25 = red)
+AS          Away Team Shots
+HS	        Home Team Shots
+AST         Away Team Shots on Target
+HST	        Home Team Shots on Target
+HTAG        Half Time Away Team Goals
+HTHG	    Half Time Home Team Goals
+HTR	        Half Time Result (H=Home Win, D=Draw, A=Away Win)
+            (Dummies)   H=3, D=1, A=0
+FTAG	    Full Time Away Team Goals
+FTHG	    Full Time Home Team Goals
+FTR	        Full Time Result (H=Home Win, D=Draw, A=Away Win)
+            (Dummies)   H=3, D=1, A=0
+AC	        Away Team Corners
+HC	        Home Team Corners
+AF	        Away Team Fouls Committed
+HF	        Home Team Fouls Committed
+AY	        Away Team Yellow Cards
+HY	        Home Team Yellow Cards
+AR	        Away Team Red Cards
+HR	        Home Team Red Cards
 
-Note that Free Kicks Conceeded includes fouls, offsides and any other offense commmitted and will always be equal to or higher than the number of fouls. Fouls make up the vast majority of Free Kicks Conceded. Free Kicks Conceded are shown when specific data on Fouls are not available (France 2nd, Belgium 1st and Greece 1st divisions).
+##Step 3: Correlation
 
-Note also that English and Scottish yellow cards do not include the initial yellow card when a second is shown to a player converting it into a red, but this is included as a yellow (plus red) for European games.
+Very obvious ant-correlations, not much learned here
+One thing, away shots on target much less or more than home shots on target. Away team is more varied in shots
 
+##Step 4: Creating Index for categorical variables
 
-Key to 1X2 (match) betting odds data:
+I converted the Half-time and Full time results into ordinal columns, with a home win = 3, a draw = 1, and a home loss = 0
+Made Home and Away teams into numeric values. Their index:
 
-B365H = Bet365 home win odds
-B365D = Bet365 draw odds
-B365A = Bet365 away win odds
-BSH = Blue Square home win odds
-BSD = Blue Square draw odds
-BSA = Blue Square away win odds
-BWH = Bet&Win home win odds
-BWD = Bet&Win draw odds
-BWA = Bet&Win away win odds
-GBH = Gamebookers home win odds
-GBD = Gamebookers draw odds
-GBA = Gamebookers away win odds
-IWH = Interwetten home win odds
-IWD = Interwetten draw odds
-IWA = Interwetten away win odds
-LBH = Ladbrokes home win odds
-LBD = Ladbrokes draw odds
-LBA = Ladbrokes away win odds
-PSH and PH = Pinnacle home win odds
-PSD and PD = Pinnacle draw odds
-PSA and PA = Pinnacle away win odds
-SOH = Sporting Odds home win odds
-SOD = Sporting Odds draw odds
-SOA = Sporting Odds away win odds
-SBH = Sportingbet home win odds
-SBD = Sportingbet draw odds
-SBA = Sportingbet away win odds
-SJH = Stan James home win odds
-SJD = Stan James draw odds
-SJA = Stan James away win odds
-SYH = Stanleybet home win odds
-SYD = Stanleybet draw odds
-SYA = Stanleybet away win odds
-VCH = VC Bet home win odds
-VCD = VC Bet draw odds
-VCA = VC Bet away win odds
-WHH = William Hill home win odds
-WHD = William Hill draw odds
-WHA = William Hill away win odds
+    Home_Team_Index        Team
+0                 0           0
+1                 1    Atalanta
+2                 2        Bari
+3                 3   Benevento
+4                 4     Bologna
+5                 5     Brescia
+6                 6    Cagliari
+7                 7       Carpi
+8                 8     Catania
+9                 9      Cesena
+10               10      Chievo
+11               11     Crotone
+12               12      Empoli
+13               13  Fiorentina
+14               14   Frosinone
+15               15       Genoa
+16               16       Inter
+17               17    Juventus
+18               18       Lazio
+19               19       Lecce
+20               20     Livorno
+21               21       Milan
+22               22      Napoli
+23               23      Novara
+24               24     Palermo
+25               25       Parma
+26               26     Pescara
+27               27        Roma
+28               28   Sampdoria
+29               29    Sassuolo
+30               30       Siena
+31               31        Spal
+32               32      Spezia
+33               33      Torino
+34               34     Udinese
+35               35      Verona
 
-Bb1X2 = Number of BetBrain bookmakers used to calculate match odds averages and maximums
-BbMxH = Betbrain maximum home win odds
-BbAvH = Betbrain average home win odds
-BbMxD = Betbrain maximum draw odds
-BbAvD = Betbrain average draw win odds
-BbMxA = Betbrain maximum away win odds
-BbAvA = Betbrain average away win odds
+##Step 5: Logistic Regression
 
-MaxH = Market maximum home win odds
-MaxD = Market maximum draw win odds
-MaxA = Market maximum away win odds
-AvgH = Market average home win odds
-AvgD = Market average draw win odds
-AvgA = Market average away win odds
+We really used a softmax regression, as the dependent variable has 3 outcomes. First normalize the model's x and y, then look at things like accuracy and baseline score. Looked at baseline score as well, pretty poor in comparison. Using Cohen's score to observe randomness, there is no randomness in our model
 
+Feature Importance - found that:
+The biggest factor in a home win is Full_Time_Away_Team_Goals, followed by Away_Team_Shots_on_Target
+The biggest factor in ahome loss is Full_Time_Home_Team_Goals, followed by Half_Time_Result, and Home_Team_Shots_on_Target
 
+![](img\feature_importance_softmax_regression.png)
 
-Key to total goals betting odds:
+I used Ridge regression instead of lasso to highlight categories that were pretty effective on the dataset
 
-BbOU = Number of BetBrain bookmakers used to calculate over/under 2.5 goals (total goals) averages and maximums
-BbMx>2.5 = Betbrain maximum over 2.5 goals
-BbAv>2.5 = Betbrain average over 2.5 goals
-BbMx<2.5 = Betbrain maximum under 2.5 goals
-BbAv<2.5 = Betbrain average under 2.5 goals
+##Step 6: Random Forest
 
-GB>2.5 = Gamebookers over 2.5 goals
-GB<2.5 = Gamebookers under 2.5 goals
-B365>2.5 = Bet365 over 2.5 goals
-B365<2.5 = Bet365 under 2.5 goals
-P>2.5 = Pinnacle over 2.5 goals
-P<2.5 = Pinnacle under 2.5 goals
-Max>2.5 = Market maximum over 2.5 goals
-Max<2.5 = Market maximum under 2.5 goals
-Avg>2.5 = Market average over 2.5 goals
-Avg<2.5 = Market average under 2.5 goals
+Used another model called random forest to validate earlier findings
+The accuracy, baseline accuracy, and cohens score were relatively the same
 
+![](img\feature_importance_random_forest.png)
 
+##Step 7: K-Folds
 
-Key to Asian handicap betting odds:
+Use K-folds along with the random forest model so that the model oculd be testeed with "Real-World data" and see how it reacts during every fold. Was generally pretty solid, model ended at 0.993 accuracy
 
-BbAH = Number of BetBrain bookmakers used to Asian handicap averages and maximums
-BbAHh = Betbrain size of handicap (home team)
-AHh = Market size of handicap (home team) (since 2019/2020)
-BbMxAHH = Betbrain maximum Asian handicap home team odds
-BbAvAHH = Betbrain average Asian handicap home team odds
-BbMxAHA = Betbrain maximum Asian handicap away team odds
-BbAvAHA = Betbrain average Asian handicap away team odds
+![](img\K-folds_6_splits.png)
 
-GBAHH = Gamebookers Asian handicap home team odds
-GBAHA = Gamebookers Asian handicap away team odds
-GBAH = Gamebookers size of handicap (home team)
-LBAHH = Ladbrokes Asian handicap home team odds
-LBAHA = Ladbrokes Asian handicap away team odds
-LBAH = Ladbrokes size of handicap (home team)
-B365AHH = Bet365 Asian handicap home team odds
-B365AHA = Bet365 Asian handicap away team odds
-B365AH = Bet365 size of handicap (home team)
-PAHH = Pinnacle Asian handicap home team odds
-PAHA = Pinnacle Asian handicap away team odds
-MaxAHH = Market maximum Asian handicap home team odds
-MaxAHA = Market maximum Asian handicap away team odds	
-AvgAHH = Market average Asian handicap home team odds
-AvgAHA = Market average Asian handicap away team odds
+##Step 8: Hyperparameters
 
-
-
-Closing odds (last odds before match starts)
-
-As above but with an additional "C" character following the bookmaker abbreviation/Max/Avg
-
-Football-Data would like to acknowledge the following sources which have been utilised in the compilation of Football-Data's results and odds files.
-
-
-Current results (full time, half time)
-Xcores - http://www.xcores .com
-
-Match statistics
-BBC, ESPN Soccer, Bundesliga.de, Gazzetta.it and Football.fr
-
-Bookmakers betting odds
-Individual bookmakers
-
-Betting odds for weekend games are collected Friday afternoons, and on Tuesday afternoons for midweek games.
-
-Additional match statistics (corners, shots, bookings, referee etc.) for the 2000/01 and 2001/02 seasons for the English, Scottish and German leagues were provided by Sports.com (now under new ownership and no longer available).
-
+Used a hyperparameter grid with some out-there paamateres so that the model could adjust itself. An example is features; if I were to run hyper parameters for max_features, and the grid found that 0.05 is a better parameter, it would mean that most of my categories were useless
