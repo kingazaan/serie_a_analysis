@@ -5,23 +5,23 @@ Analysis of Serie A data
 ##Step 2: Delete all betting columns
 Keep:
 
-Season      Season
-Date	    Match Date (dd/mm/yy)
-AwayTeam    Away Team
-HomeTeam	Home Team
+Season              Season
+Date	        Match Date (dd/mm/yy)
+AwayTeam            Away Team
+HomeTeam	        Home Team
 
-AS          Away Team Shots
+AS                  Away Team Shots
 HS	        Home Team Shots
-AST         Away Team Shots on Target
+AST                 Away Team Shots on Target
 HST	        Home Team Shots on Target
-HTAG        Half Time Away Team Goals
-HTHG	    Half Time Home Team Goals
+HTAG                Half Time Away Team Goals
+HTHG	        Half Time Home Team Goals
 HTR	        Half Time Result (H=Home Win, D=Draw, A=Away Win)
-            (Dummies)   H=3, D=1, A=0
-FTAG	    Full Time Away Team Goals
-FTHG	    Full Time Home Team Goals
+                        (Dummies)   H=3, D=1, A=0
+FTAG	        Full Time Away Team Goals
+FTHG	        Full Time Home Team Goals
 FTR	        Full Time Result (H=Home Win, D=Draw, A=Away Win)
-            (Dummies)   H=3, D=1, A=0
+                        (Dummies)   H=3, D=1, A=0
 AC	        Away Team Corners
 HC	        Home Team Corners
 AF	        Away Team Fouls Committed
