@@ -5,6 +5,8 @@
 ## Step 2: Delete all betting columns
 Keep:
 
+| Table        | Description                                        |
+|--------------|----------------------------------------------------|
 | Season       | Season                                             |
 | Date	       | Match Date (dd/mm/yy)                              |
 | AwayTeam     | Away Team                                          |
@@ -41,44 +43,44 @@ One thing, away shots on target much less or more than home shots on target. Awa
 I converted the Half-time and Full time results into ordinal columns, with a home win = 3, a draw = 1, and a home loss = 0  
 Made Home and Away teams into numeric values. Their index:
 
-|  Home_Team_Index |       Team     |
-|------------------|----------------|
-| 0                |  0           0 |  
-| 1                |  1    Atalanta |  
-| 2                |  2        Bari |  
-| 3                |  3   Benevento |  
-| 4                |  4     Bologna |  
-| 5                |  5     Brescia |  
-| 6                |  6    Cagliari |
-| 7                |  7       Carpi |
-| 8                |  8     Catania |
-| 9                |  9      Cesena |
-| 10               | 10      Chievo |
-| 11               | 11     Crotone |
-| 12               | 12      Empoli |  
-| 13               | 13  Fiorentina |  
-| 14               | 14   Frosinone |  
-| 15               | 15       Genoa |  
-| 16               | 16       Inter |  
-| 17               | 17    Juventus |  
-| 18               | 18       Lazio |  
-| 19               | 19       Lecce |  
-| 20               | 20     Livorno |  
-| 21               | 21       Milan |  
-| 22               | 22      Napoli |  
-| 23               | 23      Novara |  
-| 24               | 24     Palermo |  
-| 25               | 25       Parma |  
-| 26               | 26     Pescara |  
-| 27               | 27        Roma |  
-| 28               | 28   Sampdoria |  
-| 29               | 29    Sassuolo |  
-| 30               | 30       Siena |  
-| 31               | 31        Spal |  
-| 32               | 32      Spezia |  
-| 33               | 33      Torino |  
-| 34               | 34     Udinese |  
-| 35               | 35      Verona |  
+|  Home_Team_Index |    Team     |
+|------------------|-------------|
+| 0                |           0 |  
+| 1                |    Atalanta |  
+| 2                |        Bari |  
+| 3                |   Benevento |  
+| 4                |     Bologna |  
+| 5                |     Brescia |  
+| 6                |    Cagliari |
+| 7                |       Carpi |
+| 8                |     Catania |
+| 9                |      Cesena |
+| 10               |      Chievo |
+| 11               |     Crotone |
+| 12               |      Empoli |  
+| 13               |  Fiorentina |  
+| 14               |   Frosinone |  
+| 15               |       Genoa |  
+| 16               |       Inter |  
+| 17               |    Juventus |  
+| 18               |       Lazio |  
+| 19               |       Lecce |  
+| 20               |     Livorno |  
+| 21               |       Milan |  
+| 22               |      Napoli |  
+| 23               |      Novara |  
+| 24               |     Palermo |  
+| 25               |       Parma |  
+| 26               |     Pescara |  
+| 27               |        Roma |  
+| 28               |   Sampdoria |  
+| 29               |    Sassuolo |  
+| 30               |       Siena |  
+| 31               |        Spal |  
+| 32               |      Spezia |  
+| 33               |      Torino |  
+| 34               |     Udinese |  
+| 35               |      Verona |  
 
 ## Step 5: Logistic Regression
 
