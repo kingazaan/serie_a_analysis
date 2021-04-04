@@ -1,11 +1,3 @@
-<style>
-table{
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 1px solid black;
-}
-</style>
-
 # Analysis of Serie A data
 
 I am using data from the last 10 Serie A seasons, in order to predict this season  
