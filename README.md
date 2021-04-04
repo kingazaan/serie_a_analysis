@@ -171,7 +171,7 @@ The final table looks like this:
 
 2. I was not able to make a prediction that used only the most recent season's data. When I tried, it ended up with way fewer points than I wanted  
 
-3. There seemed ot be no randomness in my model which is concerning, and I fear thi sis because the model is only using the training data and not the test data  
+3. There seemed ot be no randomness in my model which is concerning, and I fear this is because the model is only using the training data and not the test data. Still have much to learn  
 
 This was my first attempt at something like this, so I will focus on improving this more and more, either with better data or more recent data. If you have any suggestions please let me know!  
 
