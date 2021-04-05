@@ -164,6 +164,12 @@ The final table looks like this:
 | 19       |     Empoli |    15    |  
 | 20       |    Catania |    15    |  
 
+### Accuracy Score = 67.75%
+
+## Step 10: Accuracy check
+
+I checked my accuracy in terms of league positions by downloading the current data for the Serie A, and then coming up with a points-scale where the higher number= of points equals teh worse prediction  
+I got a score of 67.75%, which is pretty good but in general I had no correct league positions in the predictions, so the generally high accuracy score can be seen as misleading; for example, Juventus was predicted first when in reality they are currently 4th, so this added +4 which could have been higher using a better scoring scale
 
 ## Issues I came across
 
